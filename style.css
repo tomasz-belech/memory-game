@@ -13,6 +13,15 @@ body {
     cursor: pointer;
 }
 
+.card.done {
+    cursor: default;
+}
+
+.card.done:hover {
+    cursor: default;
+    box-shadow: none;
+}
+
 .card:hover {
     box-shadow: inset 0px 0px 0px 2px black;
     box-sizing: border-box;
@@ -49,6 +58,10 @@ body {
 
 .orange {
     background-color: orange;
+}
+
+.color-hidden {
+    background-color: white;
 }
 
 
