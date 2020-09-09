@@ -7,7 +7,8 @@ Repozytorium dla Projektu nr 2.
 ### Tematy do wyboru
 
 - Gry (motywy przewodnie - dopuszczalne hybrydy):
-  - memory 
+  - memory
+  -
  
 
 ### Dla chętnych
