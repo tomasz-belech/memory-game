@@ -11,6 +11,7 @@ body {
     height: 100px;
     background-color: whitesmoke;
     cursor: pointer;
+    border: 5px solid black;
 }
 
 .card.done {
@@ -74,5 +75,6 @@ body {
 .header {
     text-align: center;
     color: white;
+
 }
 

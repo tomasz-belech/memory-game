@@ -1,4 +1,78 @@
+const boardDimension = 4;
+
+
 const scoreElement = document.querySelector('.score');
+const boardContainer = document.querySelector('.board__container');
+
+const cardList = [
+    {
+        name: "pink"
+    },
+    {
+        name: "yellow"
+    },
+    {
+        name: "blue"
+    },
+    {
+        name: "red"
+    },
+    {
+        name: "grey"
+    },
+    {
+        name: "purple"
+    },
+    {
+        name: "orange"
+    },
+    {
+        name: "green"
+    }
+];
+const usedCardList = [];
+const cardBin = [];
+
+
+function pickCardFromList () {
+    const list = [...cardList]
+    const listLength = list.length;
+    const randomNumber = Math.floor(Math.random() * (listLength));
+    const randomCard = list[randomNumber];
+    list.splice(randomNumber, 1);
+    return randomCard;
+}
+
+function shuffleCardList () {
+    
+}
+
+
+
+function createBoard () {
+    for (let i = 0; i < boardDimension; i++) {
+        let row = document.createElement("div");
+        row.classList.add("row");
+        boardContainer.appendChild(row);
+
+        for (let i = 0; i < boardDimension; i++) {
+            let field = document.createElement("div");
+            field.setAttribute("data-color", cardList[i].name);
+            field.className = "card color-hidden";
+            field.classList.add(cardList[i].name)
+            row.appendChild(field);
+            pickCardFromList();
+        } 
+
+    }
+}
+createBoard();
+
+
+
+
+
+
 let clickedCard = null;
 let score = 0;
 function renderScore() {
