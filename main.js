@@ -21,7 +21,6 @@ function onCardClicked(e) {
  if (!clickedCard) {
     target.className = target.className
         .replace('color-hidden', '')
-        .trim();
     clickedCard = target;
  } else if (clickedCard) {
 
