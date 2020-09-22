@@ -1,6 +1,4 @@
 const boardDimension = 4;
-
-
 const scoreElement = document.querySelector('.score');
 const boardContainer = document.querySelector('.board__container');
 
@@ -31,56 +29,52 @@ const cardList = [
     }
 ];
 const usedCardList = [];
-const cardBin = [];
 
-
-function pickCardFromList () {
-    const list = [...cardList]
+function pickCardFromList (list, isFirstArray) {
     const listLength = list.length;
     const randomNumber = Math.floor(Math.random() * (listLength));
     const randomCard = list[randomNumber];
+    isFirstArray && usedCardList.push(randomCard);
     list.splice(randomNumber, 1);
     return randomCard;
 }
 
-function shuffleCardList () {
-    
-}
-
-
-
 function createBoard () {
+    
     for (let i = 0; i < boardDimension; i++) {
         let row = document.createElement("div");
         row.classList.add("row");
         boardContainer.appendChild(row);
 
         for (let i = 0; i < boardDimension; i++) {
-            let field = document.createElement("div");
-            field.setAttribute("data-color", cardList[i].name);
+            const isFirstArray = !!cardList.length;
+            const list = cardList.length ? cardList : usedCardList;
+            const cardToApply = pickCardFromList(list, isFirstArray).name;
+            const field = document.createElement("div");
+            field.setAttribute("data-color", cardToApply);
             field.className = "card color-hidden";
-            field.classList.add(cardList[i].name)
+            field.classList.add(cardToApply);
+            field.addEventListener('click', (event) => {
+                onCardClicked(event);
+            });
             row.appendChild(field);
-            pickCardFromList();
         } 
 
     }
 }
+
 createBoard();
-
-
-
-
-
 
 let clickedCard = null;
 let score = 0;
 function renderScore() {
     scoreElement.innerText = `Score: ${score}`;
 }
+
 renderScore();
-function onCardClicked(e) {
-    const target = e.currentTarget;
+
+function onCardClicked(event) {
+    const target = event.currentTarget;
 
     if(target === clickedCard || target.className.includes('done')) {
         return;
@@ -89,7 +83,6 @@ function onCardClicked(e) {
     target.classList.remove('color-hidden');
     target.classList.add('done');
 
-    
     console.log(target.getAttribute('data-color'));
 
  if (!clickedCard) {
