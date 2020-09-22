@@ -110,7 +110,7 @@ function onCardClicked(event) {
             clickedCard.classList.remove('done');
             target.classList.remove('done');
             clickedCard = null;
-         }, 1200);
+         }, 700);
      }
 
  }
