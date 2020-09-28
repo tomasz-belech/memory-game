@@ -1,6 +1,10 @@
+//GAME VARIABLES
+
 const boardDimension = 4;
 const scoreElement = document.querySelector('.score');
 const boardContainer = document.querySelector('.board__container');
+
+//CARD LIST AND USED CARD LIST ARRAYS
 
 const cardList = [
     {
@@ -29,6 +33,8 @@ const cardList = [
     }
 ];
 const usedCardList = [];
+
+// CREAT BOARD AND PICK UP  CARD FUNCTIONS
 
 function pickCardFromList (list, isFirstArray) {
     const listLength = list.length;
@@ -73,6 +79,8 @@ function renderScore() {
 
 renderScore();
 
+//ON CLICK FUNCTION ,  CHECK  AND CHANGE COLOR FUNCTION
+
 function onCardClicked(event) {
     const target = event.currentTarget;
 
@@ -93,6 +101,8 @@ function onCardClicked(event) {
 
     console.log(clickedCard);
     console.log(target);
+
+// RENDER SCORE , CHECK IF MATCH FUNCTION
 
      if (clickedCard.getAttribute('data-color') === target.getAttribute('data-color')) {
          console.log('trafiles');
