@@ -1,72 +1,70 @@
 //GAME VARIABLES
 
 const boardDimension = 4;
-const scoreElement = document.querySelector('.score');
-const boardContainer = document.querySelector('.board__container');
+const scoreElement = document.querySelector(".score");
+const boardContainer = document.querySelector(".board__container");
 
 //CARD LIST AND USED CARD LIST ARRAYS
 
 const cardList = [
-    {
-        name: "pink"
-    },
-    {
-        name: "yellow"
-    },
-    {
-        name: "blue"
-    },
-    {
-        name: "red"
-    },
-    {
-        name: "grey"
-    },
-    {
-        name: "purple"
-    },
-    {
-        name: "orange"
-    },
-    {
-        name: "green"
-    }
+  {
+    name: "pink",
+  },
+  {
+    name: "yellow",
+  },
+  {
+    name: "blue",
+  },
+  {
+    name: "red",
+  },
+  {
+    name: "grey",
+  },
+  {
+    name: "purple",
+  },
+  {
+    name: "orange",
+  },
+  {
+    name: "green",
+  },
 ];
 const usedCardList = [];
 
 // CREAT BOARD AND PICK UP  CARD FUNCTIONS
 
-function pickCardFromList (list, isFirstArray) {
-    const listLength = list.length;
-    const randomNumber = Math.floor(Math.random() * (listLength));
-    const randomCard = list[randomNumber];
-    isFirstArray && usedCardList.push(randomCard);
-    list.splice(randomNumber, 1);
-    return randomCard;
+function pickCardFromList(list, isFirstArray) {
+  const listLength = list.length;
+  const randomNumber = Math.floor(Math.random() * listLength);
+  const randomCard = list[randomNumber];
+  isFirstArray && usedCardList.push(randomCard);
+  list.splice(randomNumber, 1);
+  return randomCard;
 }
 
-function createBoard () {
-    
+function createBoard() {
+  for (let i = 0; i < boardDimension; i++) {
+    let row = document.createElement("div");
+    row.classList.add("row");
+    boardContainer.appendChild(row);
+
     for (let i = 0; i < boardDimension; i++) {
-        let row = document.createElement("div");
-        row.classList.add("row");
-        boardContainer.appendChild(row);
-
-        for (let i = 0; i < boardDimension; i++) {
-            const isFirstArray = !!cardList.length;
-            const list = cardList.length ? cardList : usedCardList;
-            const cardToApply = pickCardFromList(list, isFirstArray).name;
-            const field = document.createElement("div");
-            field.setAttribute("data-color", cardToApply);
-            field.className = "card color-hidden";
-            field.classList.add(cardToApply);
-            field.addEventListener('click', (event) => {
-                onCardClicked(event);
-            });
-            row.appendChild(field);
-        } 
-
+      const isFirstArray = !!cardList.length;
+      const list = cardList.length ? cardList : usedCardList;
+      const cardToApply = pickCardFromList(list, isFirstArray).name;
+      const field = document.createElement("div");
+      field.setAttribute("data-color", cardToApply);
+      field.className = "card color-hidden";
+      field.classList.add(cardToApply);
+      field.addEventListener("click", (event) => {
+        onCardClicked(event);
+      });
+      row.appendChild(field);
     }
+  }
 }
 
 createBoard();
@@ -74,7 +72,7 @@ createBoard();
 let clickedCard = null;
 let score = 0;
 function renderScore() {
-    scoreElement.innerText = `Score: ${score}`;
+  scoreElement.innerText = `Score: ${score}`;
 }
 
 renderScore();
@@ -82,46 +80,44 @@ renderScore();
 //ON CLICK FUNCTION ,  CHECK  AND CHANGE COLOR FUNCTION
 
 function onCardClicked(event) {
-    const target = event.currentTarget;
+  const target = event.currentTarget;
 
-    if(target === clickedCard || target.className.includes('done')) {
-        return;
-    }
+  if (target === clickedCard || target.className.includes("done")) {
+    return;
+  }
 
-    target.classList.remove('color-hidden');
-    target.classList.add('done');
+  target.classList.remove("color-hidden");
+  target.classList.add("done");
 
-    console.log(target.getAttribute('data-color'));
+  console.log(target.getAttribute("data-color"));
 
- if (!clickedCard) {
-    target.className = target.className
-        .replace('color-hidden', '')
+  if (!clickedCard) {
+    target.className = target.className.replace("color-hidden", "");
     clickedCard = target;
- } else if (clickedCard) {
-
+  } else if (clickedCard) {
     console.log(clickedCard);
     console.log(target);
 
-// RENDER SCORE , CHECK IF MATCH FUNCTION
+    // RENDER SCORE , CHECK IF MATCH FUNCTION
 
-     if (clickedCard.getAttribute('data-color') === target.getAttribute('data-color')) {
-         console.log('trafiles');
-         clickedCard = null;
-         score += 10;
-         renderScore();
-
-     }
-     else {
-         score += -5;
-         renderScore();
-         setTimeout(function() {
-            clickedCard.classList.add('color-hidden');
-            target.classList.add('color-hidden');
-            clickedCard.classList.remove('done');
-            target.classList.remove('done');
-            clickedCard = null;
-         }, 700);
-     }
-
- }
+    if (
+      clickedCard.getAttribute("data-color") ===
+      target.getAttribute("data-color")
+    ) {
+      console.log("trafiles");
+      clickedCard = null;
+      score += 10;
+      renderScore();
+    } else {
+      score += -5;
+      renderScore();
+      setTimeout(function () {
+        clickedCard.classList.add("color-hidden");
+        target.classList.add("color-hidden");
+        clickedCard.classList.remove("done");
+        target.classList.remove("done");
+        clickedCard = null;
+      }, 700);
+    }
+  }
 }
