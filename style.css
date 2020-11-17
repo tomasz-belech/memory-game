@@ -1,80 +1,77 @@
 body {
-    background-color: black;
+  background-color: black;
 }
 .row {
-    text-align: center;
+  text-align: center;
 }
 
 .card {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    background-color: whitesmoke;
-    cursor: pointer;
-    border: 5px solid black;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: whitesmoke;
+  cursor: pointer;
+  border: 3px solid black;
 }
 
 .card.done {
-    cursor: default;
+  cursor: default;
 }
 
 .card.done:hover {
-    cursor: default;
-    box-shadow: none;
+  cursor: default;
+  box-shadow: none;
 }
 
 .card:hover {
-    box-shadow: inset 0px 0px 0px 2px black;
-    box-sizing: border-box;
-    
+  box-shadow: inset 0px 0px 0px 2px black;
+  box-sizing: border-box;
 }
 
 .red {
-    background-color: red;
+  background-color: red;
 }
 
 .blue {
-    background-color: blue;
+  background-color: blue;
 }
 
 .yellow {
-    background-color: yellow;
+  background-color: yellow;
 }
 
 .green {
-    background-color: green;
+  background-color: green;
 }
 
 .pink {
-    background-color: pink;
+  background-color: pink;
 }
 
 .grey {
-    background-color: grey;
+  background-color: grey;
 }
 
 .purple {
-    background-color: purple;
+  background-color: purple;
 }
 
 .orange {
-    background-color: orange;
+  background-color: orange;
 }
 
 .color-hidden {
-    background-color: white;
+  background-color: white;
 }
 
 .score {
-    color: red;
-    padding-bottom: 2rem;
-    text-transform: uppercase;
-    font-size: 20px;
+  color: red;
+  padding-bottom: 2rem;
+  text-transform: uppercase;
+  font-size: 20px;
 }
 
 .header {
-    text-align: center;
-    color: white;
-
+  text-align: center;
+  color: white;
 }
-
