@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+  background-color: #ffdf3d;
 }
 .row {
   text-align: center;
@@ -11,7 +11,7 @@ body {
   height: 50px;
   background-color: whitesmoke;
   cursor: pointer;
-  border: 3px solid black;
+  border: 1px solid #ffdf3d;
 }
 
 .card.done {
@@ -24,7 +24,7 @@ body {
 }
 
 .card:hover {
-  box-shadow: inset 0px 0px 0px 2px black;
+  box-shadow: inset 0px 0px 0px 2px #ffdf3d;
   box-sizing: border-box;
 }
 
@@ -65,13 +65,125 @@ body {
 }
 
 .score {
-  color: red;
+  color: white;
   padding-bottom: 2rem;
   text-transform: uppercase;
-  font-size: 20px;
+  font-size: 30px;
+  font-weight: 900;
+  color: crimson;
 }
-
-.header {
+.header__container {
+  justify-content: center;
+  display: flex;
+  align-self: center;
   text-align: center;
   color: white;
+}
+.header {
+  align-self: center;
+  text-align: center;
+  color: white;
+  width: 300px;
+  height: 90px;
+  background-image: url("img/Screenshot_2.png");
+  text-transform: uppercase;
+}
+@media (min-width: 1200px) {
+  body {
+    background-color: #ffdf3d;
+  }
+  .row {
+    text-align: center;
+  }
+
+  .card {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background-color: whitesmoke;
+    cursor: pointer;
+    border: 1px solid #ffdf3d;
+  }
+
+  .card.done {
+    cursor: default;
+  }
+
+  .card.done:hover {
+    cursor: default;
+    box-shadow: none;
+  }
+
+  .card:hover {
+    box-shadow: inset 0px 0px 0px 2px #ffdf3d;
+    box-sizing: border-box;
+  }
+
+  .red {
+    background-color: red;
+  }
+
+  .blue {
+    background-color: blue;
+  }
+
+  .yellow {
+    background-color: yellow;
+  }
+
+  .green {
+    background-color: green;
+  }
+
+  .pink {
+    background-color: pink;
+  }
+
+  .grey {
+    background-color: grey;
+  }
+
+  .purple {
+    background-color: purple;
+  }
+
+  .orange {
+    background-color: orange;
+  }
+
+  .color-hidden {
+    background-color: white;
+  }
+
+  .score {
+    color: white;
+    padding-bottom: 2rem;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 900;
+    color: crimson;
+  }
+
+  .header__container {
+    display: flex;
+    align-self: center;
+    text-align: center;
+    color: white;
+  }
+  .header {
+    align-self: center;
+    text-align: center;
+    color: white;
+    width: 300px;
+    height: 90px;
+    background-image: url("img/Screenshot_2.png");
+    text-transform: uppercase;
+  }
+  .header h1 {
+    align-self: center;
+    text-align: center;
+    color: white;
+    width: 300px;
+    text-transform: uppercase;
+  }
 }
