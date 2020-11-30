@@ -1,5 +1,6 @@
-Memory game made by Tomasz
-Game rules:
+### Memory game made by Tomasz
+
+### Game rules:
 
 - 10 points per match
 
